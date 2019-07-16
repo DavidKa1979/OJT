@@ -396,6 +396,17 @@ function($rootScope, $scope, $state, $stateParams, $http, $q, userService, Uploa
         }
     };
 
+	// goToLessonPage
+	$scope.goToLessonPage= function(lesson) {
+        if($rootScope.isAdmin) {
+            $state.transitionTo('singleLesson', {
+				lessonId: lesson.lessonid,
+				lessonNum: lesson.num,
+				courseId: $scope.courseid
+            });
+        }
+	};
+
 
     $scope.UpdateUserReligion = function(user) {
 		var data={};
