@@ -262,9 +262,7 @@
 						<table class="table-striped table-bordered table-hover midrows">
 							<thead>
 								<tr>
-										<!-- <th class="small-cell">שיעור</th>
-										<th class="small-cell">תאריך</th>
-										<th class="small-cell">שעה</th> -->
+								
 									<th sorter-table-header field-index="'code'" field-text="'מספר שיעור'"
 										sort-by-field="sortBy" sorting-field="sortingField" reverse-order="reverseOrder"
 										class="small-cell"></th>
@@ -278,7 +276,7 @@
 							</thead>
 							<tbody ng-model="courses">
 								<tr style="cursor:pointer" ng-click="goToLessonPage(lesson)"
-									ng-repeat="lesson in courseLessons | orderBy:sortType:sortReverse">
+									ng-repeat="lesson in lessons | orderBy:sortType:sortReverse">
 									<td class="small-cell" title="{{lesson.num}}">{{lesson.num}}</td>
 									<td class="small-cell" title="{{lesson.beginningdate}}">{{lesson.beginningdate | date: 'dd/MM/yyyy'}}</td>
 									<td class="small-cell" title="{{lesson.beginningdate}}">{{lesson.beginningdate | date : 'HH:MM'}}</td>
@@ -307,49 +305,3 @@
 		</form>
 	</div>
 </div>
-
-
-
-<!--my table-->
-<!-- <h1>lesson section</h1>
-<page-navigator page-count="pageCount" page-index="pageIndex" go-to-page="goToPage" loading="loading"></page-navigator>
-<div class="scrolling-table-wrapper">
-	<div class="scrolling-table clickable">
-		<table class="table-striped table-bordered table-hover midrows">
-			<thead>
-				<tr>
-					<th sorter-table-header field-index="'code'" field-text="'קוד קורס'" sort-by-field="sortBy"
-						sorting-field="sortingField" reverse-order="reverseOrder" class="small-cell"></th>
-					<th sorter-table-header field-index="'name'" field-text="'שם קורס מלא'" sort-by-field="sortBy"
-						sorting-field="sortingField" reverse-order="reverseOrder" class="large-cell"></th>
-					<th sorter-table-header field-index="'subname'" field-text="'שם מקוצר'" sort-by-field="sortBy"
-						sorting-field="sortingField" reverse-order="reverseOrder" class="large-cell"></th>
-					<th sorter-table-header field-index="'project'" field-text="'פרויקט'" sort-by-field="sortBy"
-						sorting-field="sortingField" reverse-order="reverseOrder" class="small-cell"></th>
-					<th sorter-table-header field-index="'year'" field-text="'שנת תקציב'" sort-by-field="sortBy"
-						sorting-field="sortingField" reverse-order="reverseOrder" class="small-cell"></th>
-					<th sorter-table-header field-index="'cityname'" field-text="'עיר'" sort-by-field="sortBy"
-						sorting-field="sortingField" reverse-order="reverseOrder" class="small-cell"></th>
-					<th sorter-table-header field-index="'teachers'" field-text="'מדריך'" class="large-cell"></th>
-					<th sorter-table-header field-index="'studentnum'" field-text="'מס סטודנטים'" class="small-cell">
-					</th>
-				</tr>
-			</thead>
-			<tbody ng-model="courses">
-				<tr style="cursor:pointer" ng-click="goToCoursePage(course)"
-					ng-repeat="course in courses | orderBy:sortType:sortReverse">
-					<td class="small-cell" title="{{course.code}}">{{course.code}}</td>
-					<td class="large-cell" title="{{course.name}}">{{course.name}}</td>
-					<td class="large-cell" title="{{course.subname}}">{{course.subname}}</td>
-					<td class="small-cell" title="{{course.project}}">{{course.project}}</td>
-					<td class="small-cell" title="{{course.year}}">{{course.year}}</td>
-					<td class="small-cell" title="{{course.cityname}}">{{course.cityname}}</td>
-					<td class="large-cell" title="{{course.teachers}}">{{course.teachers}}</td>
-					<td class="small-cell" title="{{course.studentnum}}">{{course.studentnum}}</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-</div>
-<page-navigator page-count="pageCount" page-index="pageIndex" go-to-page="goToPage" loading="loading"></page-navigator> -->
-<!--/my table-->

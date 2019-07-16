@@ -27,6 +27,15 @@ apple.controller('singleLesson', ['$rootScope', '$scope', '$state', '$stateParam
 
     $scope.GetAttendanceStatuses();
 
+    $scope.query = "";
+  $scope.filterStudent = function(student) {
+    if (student.firstname.toLowerCase().includes($scope.query.toLowerCase()) || 
+    student.lastname.toLowerCase().includes($scope.query.toLowerCase())) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   
     $scope.UpdateAttendeeStatus = function(student) {
         var data={};
@@ -61,8 +70,11 @@ apple.controller('singleLesson', ['$rootScope', '$scope', '$state', '$stateParam
 		
 	}
 
+
+
     $scope.backSingleCourse = function(){
-		$state.transitionTo('singleCourse', {courseId: $scope.courseId});
+        $state.transitionTo('singleCourse', {courseId: $scope.courseId});
+        window.history.back();
 	};
        
 

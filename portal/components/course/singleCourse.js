@@ -241,17 +241,17 @@ function($rootScope, $scope, $state, $stateParams, $http, $q, userService, Uploa
 	
 	// $scope.getLessonsOfCourse();
 
-	$scope.courseLessons =[];
-
+	$scope.lessons =[];
+	function GetLessonsOfCourse() {
 	var data = {};
 	data.courseid = $scope.courseid;
 	data.type = "post";
 	server.requestPhp(data, "GetLessonsOfCourse").then(function(data) {
-		if (data && !data.error) {
-			$scope.courseLessons = data;
-		}
+			$scope.lessons = data;
+			console.log($scope.lessons);
 	});
- 
+	}
+	GetLessonsOfCourse();
 
     $scope.StudentsEnrollmentTags = [];
 
