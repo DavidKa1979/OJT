@@ -18,11 +18,11 @@
                                 <tr ng-repeat="student in stundentsAttandance">
                                     <td class="small-cell">{{student.firstname}}</td>
                                     <td class="small-cell">{{student.lastname}}</td>
-                                    
+
                                     <td class="large-cell">
-                                        <select ng-model="student.attendanceStatus" 
-                                         ng-options="attendanceStatus.value as attendanceStatus.name for attendanceStatus in AttendanceStatusesTags"
-                                         ng-change="UpdateAttendeeStatus(student)" >
+                                        <select ng-model="student.attendanceStatus"
+                                            ng-options="attendanceStatus.value as attendanceStatus.name for attendanceStatus in AttendanceStatusesTags"
+                                            ng-change="UpdateAttendeeStatus(student)">
                                         </select>
                                     </td>
                                 </tr>

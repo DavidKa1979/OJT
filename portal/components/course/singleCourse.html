@@ -262,26 +262,26 @@
 						<table class="table-striped table-bordered table-hover midrows">
 							<thead>
 								<tr>
-										<th class="small-cell">שיעור#</th>
+										<!-- <th class="small-cell">שיעור</th>
 										<th class="small-cell">תאריך</th>
-										<th class="small-cell">שעה</th>
-									<!-- <th sorter-table-header field-index="'code'" field-text="'מספר שיעור'"
+										<th class="small-cell">שעה</th> -->
+									<th sorter-table-header field-index="'code'" field-text="'מספר שיעור'"
 										sort-by-field="sortBy" sorting-field="sortingField" reverse-order="reverseOrder"
 										class="small-cell"></th>
 									<th sorter-table-header field-index="'name'" field-text="'תאריך'"
 										sort-by-field="sortBy" sorting-field="sortingField" reverse-order="reverseOrder"
-										class="large-cell"></th>
+										class="small-cell"></th>
 									<th sorter-table-header field-index="'subname'" field-text="'שעה'"
 										sort-by-field="sortBy" sorting-field="sortingField" reverse-order="reverseOrder"
-										class="large-cell"></th> -->
+										class="small-cell"></th>
 								</tr>
 							</thead>
 							<tbody ng-model="courses">
 								<tr style="cursor:pointer" ng-click="goToLessonPage(lesson)"
 									ng-repeat="lesson in courseLessons | orderBy:sortType:sortReverse">
 									<td class="small-cell" title="{{lesson.num}}">{{lesson.num}}</td>
-									<td class="large-cell" title="{{lesson.date}}">{{lesson.date}}</td>
-									<td class="large-cell" title="{{lesson.hour}}">{{lesson.hour}}</td>
+									<td class="small-cell" title="{{lesson.beginningdate}}">{{lesson.beginningdate | date: 'dd/MM/yyyy'}}</td>
+									<td class="small-cell" title="{{lesson.beginningdate}}">{{lesson.beginningdate | date : 'HH:MM'}}</td>
 							
 								</tr>
 							</tbody>

@@ -225,15 +225,33 @@ function($rootScope, $scope, $state, $stateParams, $http, $q, userService, Uploa
 
     getEnrollmentRoles();
 
-    // $scope.TeachersEnrollmentTags = [];
-	//
-    // function GetEnrollmentTagsForTeachers() {
-    //     var data = {};
-    //     server.requestPhp(data, "GetEnrollmentTagsForTeachers").then(function(data) {
-    //         $scope.TeachersEnrollmentTags = data;
-    //         console.log($scope.TeachersEnrollmentTags);
+	// $scope.getLessonsOfCourse = function () {
+	// 	var data = {};
+	// 	data.courseid = $scope.courseid;
+    //     server.requestPhp(data, "GetLessonsOfCourse").then(function(data) {
+	// 		console.log($scope.courseLessons);
+	// 		for (var i = 0; i < data.length; i++)
+	// 		{
+	// 			var tempDate = new Date(parseInt(data[i].beginningdate));
+	// 			$scope.courseLessons[i].beginningdate = moment(tempDate).format('DD/MM/YY');
+	// 			$scope.courseLessons[i].beginningdate = moment(tempDate).format('HH:mm');
+	// 		}
     //     });
-    // }
+	// }
+	
+	// $scope.getLessonsOfCourse();
+
+	$scope.courseLessons =[];
+
+	var data = {};
+	data.courseid = $scope.courseid;
+	data.type = "post";
+	server.requestPhp(data, "GetLessonsOfCourse").then(function(data) {
+		if (data && !data.error) {
+			$scope.courseLessons = data;
+		}
+	});
+ 
 
     $scope.StudentsEnrollmentTags = [];
 
@@ -635,4 +653,6 @@ function($rootScope, $scope, $state, $stateParams, $http, $q, userService, Uploa
     $scope.changed = function() {
         alert("שמירת פעולה זו תגרום לשינוי הסטטוסים של החניכים והמדריכים בקורס זה!");
    }
+
+
 }]);
